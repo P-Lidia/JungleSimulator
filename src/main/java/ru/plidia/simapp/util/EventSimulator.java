@@ -46,7 +46,7 @@ public class EventSimulator {
         CheckEnergy(gecko);
         CorrectionHealth(gecko);
         CheckHealth(gecko);
-        System.out.println("Геккон съел сверчка. Жирный сверчок, что может быть лучше? -8 энергии, +" + (int) gecko.getNutrition() * 2 + " hp");
+        System.out.println("Геккон съел сверчка. Жирный сверчок, что может быть лучше? -8 энергии, +2 hp");
     }
 
     private void eatCockroachEvent(Gecko gecko) {
@@ -57,7 +57,7 @@ public class EventSimulator {
         CheckEnergy(gecko);
         CorrectionHealth(gecko);
         CheckHealth(gecko);
-        System.out.println("Геккон съел таракана. Без комментариев -_-. -8 энергии, +" + (int) gecko.getNutrition() * 3 + " hp");
+        System.out.println("Геккон съел таракана. Без комментариев -_-. -8 энергии, +3 hp");
     }
 
     private void eatWormEvent(Gecko gecko) {
@@ -68,7 +68,7 @@ public class EventSimulator {
         CheckEnergy(gecko);
         CorrectionHealth(gecko);
         CheckHealth(gecko);
-        System.out.println("Геккон съел червя. Не очень приятно, зато как питательно! -4 энергии, + " + (int) gecko.getNutrition() * 3 + " hp");
+        System.out.println("Геккон съел червя. Не очень приятно, зато как питательно! -4 энергии, +3 hp");
     }
 
     private void protectTerritoryEvent(Gecko gecko) {
