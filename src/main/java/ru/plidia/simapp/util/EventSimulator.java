@@ -148,7 +148,8 @@ public class EventSimulator {
         int energy = gecko.getEnergy();
         if (gecko.getEnergy() <= 0) {
             energy = 0;
-        } else if (gecko.getEnergy() >= 100) {
+        }
+        if (gecko.getEnergy() >= 100) {
             energy = 100;
         }
         gecko.setEnergy(energy);
@@ -158,7 +159,8 @@ public class EventSimulator {
         int health = gecko.getHealth();
         if (gecko.getHealth() <= 0) {
             health = 0;
-        } else if (gecko.getHealth() >= 100) {
+        }
+        if (gecko.getHealth() >= 100) {
             health = 100;
         }
         gecko.setHealth(health);
