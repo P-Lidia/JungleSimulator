@@ -4,14 +4,14 @@ public class Gecko {
 
     private int health = 100;
     private int energy = 100;
-    private double nutrition = 1.5;
+    private final double NUTRICION = 1.5;
 
     public void setHealth(int health) {
         this.health = health;
     }
 
     public int getHealth() {
-        return this.health;
+        return health;
     }
 
     public void setEnergy(int energy) {
@@ -19,11 +19,11 @@ public class Gecko {
     }
 
     public int getEnergy() {
-        return this.energy;
+        return energy;
     }
 
-    public double getNutrition() {
-        return this.nutrition;
+    public double getNUTRICION() {
+        return NUTRICION;
     }
 }
 

@@ -5,8 +5,7 @@ import ru.plidia.simapp.entity.Gecko;
 public class EventSimulator {
 
     public void StartSimulation(Gecko gecko) throws InterruptedException {
-        Math.random();
-        while (CheckStatusHealth(gecko)) {
+        while (checkStatusHealth(gecko)) {
             int event = (int) (Math.random() * 100);
             if (event >= 0 && event < 8) {
                 eatCricketEvent(gecko);
@@ -40,34 +39,34 @@ public class EventSimulator {
 
     private void eatCricketEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 8;
-        int health = gecko.getHealth() + (int) gecko.getNutrition() * 2;
+        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 2);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон съел сверчка. Жирный сверчок, что может быть лучше? -8 энергии, +2 hp");
     }
 
     private void eatCockroachEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 8;
-        int health = gecko.getHealth() + (int) gecko.getNutrition() * 3;
+        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 3);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон съел таракана. Без комментариев -_-. -8 энергии, +3 hp");
     }
 
     private void eatWormEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 4;
-        int health = gecko.getHealth() + (int) gecko.getNutrition() * 3;
+        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 3);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон съел червя. Не очень приятно, зато как питательно! -4 энергии, +3 hp");
     }
 
@@ -76,9 +75,9 @@ public class EventSimulator {
         int health = gecko.getHealth() - 10;
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон защищал свою территорию от других гекконов. Самые жирные сверчки живут под его кустом! -20 энергии, -10 hp");
     }
 
@@ -87,16 +86,16 @@ public class EventSimulator {
         int health = gecko.getHealth() + 3;
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон линяет. Что тут скажешь? Красота требует жертв. -5 энергии, +3 hp");
     }
 
     private void sleepEvent(Gecko gecko) {
         int energy = gecko.getEnergy() + 20;
         gecko.setEnergy(energy);
-        CheckEnergy(gecko);
+        checkEnergy(gecko);
         System.out.println("Геккон поспал. А кто бы не поспал? +20 энергии, уровень hp без изменения");
     }
 
@@ -105,38 +104,38 @@ public class EventSimulator {
         int health = gecko.getHealth() - 10;
         gecko.setEnergy(energy);
         gecko.setHealth(health);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("На геккона напал хищник. Побежали! -10 энергии, -10 hp");
     }
 
     private void LyingInTheSunEvent(Gecko gecko) {
         int energy = gecko.getEnergy() + 10;
         gecko.setEnergy(energy);
-        CheckEnergy(gecko);
+        checkEnergy(gecko);
         System.out.println("Геккон погрелся на солнце. Да, гекконам тоже важен загар! +10 энергии, уровень hp без изменения");
     }
 
     private void climbUpEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 10;
         gecko.setEnergy(energy);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон залез повыше, может оттуда лучше видно? -10 энергии, уровень hp без изменения");
     }
 
     private void hideEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 5;
         gecko.setEnergy(energy);
-        CheckEnergy(gecko);
-        CorrectionHealth(gecko);
-        CheckHealth(gecko);
+        checkEnergy(gecko);
+        correctionHealth(gecko);
+        checkHealth(gecko);
         System.out.println("Геккон спрятался. Это только стратегическое отступление! -5 энергии, уровень hp без изменения");
     }
 
-    private void CorrectionHealth(Gecko gecko) {
+    private void correctionHealth(Gecko gecko) {
         int health = gecko.getHealth();
         if (gecko.getEnergy() == 0) {
             health = health - 10;
@@ -144,7 +143,7 @@ public class EventSimulator {
         gecko.setHealth(health);
     }
 
-    private void CheckEnergy(Gecko gecko) {
+    private void checkEnergy(Gecko gecko) {
         int energy = gecko.getEnergy();
         if (gecko.getEnergy() <= 0) {
             energy = 0;
@@ -155,7 +154,7 @@ public class EventSimulator {
         gecko.setEnergy(energy);
     }
 
-    private void CheckHealth(Gecko gecko) {
+    private void checkHealth(Gecko gecko) {
         int health = gecko.getHealth();
         if (gecko.getHealth() <= 0) {
             health = 0;
@@ -166,12 +165,8 @@ public class EventSimulator {
         gecko.setHealth(health);
     }
 
-    private boolean CheckStatusHealth(Gecko gecko) {
+    private boolean checkStatusHealth(Gecko gecko) {
         System.out.println("energy: " + gecko.getEnergy() + " , hp: " + gecko.getHealth());
-        if (gecko.getHealth() <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+       return gecko.getHealth() > 0;
     }
 }
