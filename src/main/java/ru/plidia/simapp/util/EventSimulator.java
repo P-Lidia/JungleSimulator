@@ -39,7 +39,7 @@ public class EventSimulator {
 
     private void eatCricketEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 8;
-        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 2);
+        int health = gecko.getHealth() + (int) (gecko.NUTRICION * 2);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
         checkEnergy(gecko);
@@ -50,7 +50,7 @@ public class EventSimulator {
 
     private void eatCockroachEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 8;
-        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 3);
+        int health = gecko.getHealth() + (int) (gecko.NUTRICION * 3);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
         checkEnergy(gecko);
@@ -61,7 +61,7 @@ public class EventSimulator {
 
     private void eatWormEvent(Gecko gecko) {
         int energy = gecko.getEnergy() - 4;
-        int health = gecko.getHealth() + (int) (gecko.getNUTRICION() * 3);
+        int health = gecko.getHealth() + (int) (gecko.NUTRICION * 3);
         gecko.setEnergy(energy);
         gecko.setHealth(health);
         checkEnergy(gecko);
@@ -147,8 +147,7 @@ public class EventSimulator {
         int energy = gecko.getEnergy();
         if (gecko.getEnergy() <= 0) {
             energy = 0;
-        }
-        if (gecko.getEnergy() >= 100) {
+        } else if (gecko.getEnergy() >= 100) {
             energy = 100;
         }
         gecko.setEnergy(energy);
@@ -158,8 +157,7 @@ public class EventSimulator {
         int health = gecko.getHealth();
         if (gecko.getHealth() <= 0) {
             health = 0;
-        }
-        if (gecko.getHealth() >= 100) {
+        } else if (gecko.getHealth() >= 100) {
             health = 100;
         }
         gecko.setHealth(health);
@@ -167,6 +165,6 @@ public class EventSimulator {
 
     private boolean checkStatusHealth(Gecko gecko) {
         System.out.println("energy: " + gecko.getEnergy() + " , hp: " + gecko.getHealth());
-       return gecko.getHealth() > 0;
+        return gecko.getHealth() > 0;
     }
 }
